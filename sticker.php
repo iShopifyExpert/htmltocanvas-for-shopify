@@ -8,7 +8,7 @@ switch ($_SERVER['HTTP_ORIGIN']) {
     break;
 }
 $image = $_POST['image'];
-$location = "upload/";
+$location = "uploads/";
 $image_parts = explode(";base64,", $image);
 $image_base64 = base64_decode($image_parts[1]);
 $filename = "sticker-".uniqid().'.png';
