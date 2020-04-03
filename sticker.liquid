@@ -25,7 +25,11 @@
       <select class="input-select customer-country" name="properties[Flag Name]" id="customizer-flagname">
         {{ country_option_tags }}
       </select>
-    </div>
+    </div>{%comment%}
+    <div class="customizer-input marginright">
+      <label class="input-label" for="makesticker">Click</label>
+      <a href="#" class="btn button" id="makesticker">Make Sticker</a>
+    </div>{%endcomment%}
 </div>
 {{ '//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' | script_tag }}
 {{ 'html2canvas.js' | asset_url | script_tag }}
