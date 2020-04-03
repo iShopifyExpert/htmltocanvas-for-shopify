@@ -1,0 +1,15 @@
+{% if item.properties %}
+  {% for p in item.properties %}
+    {% if p.last != blank %}
+       {% if p.last contains '/uploads/' %}
+         <div class="line-item">
+            {{ p.first }}: <a class="lightbox" href="{{ p.last }}">{{ 'cart.general.uploaded_file' | t }}</a>
+         </div>
+         {% else %}
+         <div class="line-item">
+            {{ p.first }}: {{ p.last }}
+         </div>
+       {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
