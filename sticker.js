@@ -1,5 +1,5 @@
 function sticker(){
-    html2canvas(document.getElementById('sticker'), {useCORS: true, scale: 2/*, dpi: 144*/}).then(function(canvas) {
+    html2canvas(document.getElementById('sticker'), {useCORS: true, scale: 2, backgroundColor: null, letterRendering: 1/*, dpi: 144*, backgroundColor: "rgba(0,0,0,0)", removeContainer: true, x: 0, y: 0, width: 374, height: 722*/}).then(function(canvas) {
       //var canvasImg = canvas.toDataURL("image/jpg");
       //$('#canvasImg').html('<img src="'+canvasImg+'" alt="">');
       //document.body.appendChild(canvas);
