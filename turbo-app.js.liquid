@@ -1,0 +1,9 @@
+if(item.properties) {
+   $.each(item.properties, function(title, value) {
+      if (value.indexOf('https://www.codehouse.pk/') >= 0) {
+         cart_items_html += '<div class="line-item">' + title +': <a class="lightbox" href="' + value + '">uploaded file</a></div>';
+      } else {
+         cart_items_html += '<div class="line-item">' + title +': ' + value + '</div>';
+      }
+   });
+}
