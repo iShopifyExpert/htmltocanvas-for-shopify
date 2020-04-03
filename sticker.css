@@ -1,7 +1,7 @@
 .customizer-form, .customizer-preview, .customizer-row {
     display: inline-block;
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
 }
 .customizer-row .customizer-input {
     display: block;
@@ -18,14 +18,17 @@
     margin: 20px 0;
     background: url({{'bike-pipe.png' | asset_url}});
     background-size: cover;
+    z-index: 9999;
 }
 .customizer-preview .sticker {
     display: block;
     width: fit-content;
     box-shadow: -1px 1px 8px 2px #ababab;
+    border: 1px solid #ddd;
     border-radius: 14px;
     margin: 25px auto;
     background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(0, 0, 0, 0.38));
+    z-index: 1;
 }
 .customizer-preview .sticker img {
     width: 100px;
@@ -58,4 +61,25 @@
     font-weight: bolder;
     color: #fff;
     text-transform: uppercase;
+}
+  
+  .editor-svg {
+    position: relative;
+    height: 0;
+    padding-bottom: 25%;
+    border: 1px solid #e31818;
+    border: 1px solid var(--c-main);
+    margin-bottom: 10px;
+    background-color: transparent;
+    -webkit-transition: background-color .5s;
+    transition: background-color .5s;
+}
+  .editor-svg svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 100%;
 }
