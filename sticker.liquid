@@ -27,5 +27,6 @@
       </select>
     </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="{{'sticker.js' | asset_url | split: '?' | first}}?v=115"></script>
+{{ '//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' | script_tag }}
+{{ 'html2canvas.js' | asset_url | script_tag }}
+{{ sticker.js' | asset_url | script_tag }}
