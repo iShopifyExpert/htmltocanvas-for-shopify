@@ -1,0 +1,31 @@
+<div class="customizer-form">
+  <div class="customizer-preview" id="sticker">
+    <div class="sticker">
+      <img src="{{'united_states.png' | file_url}}" width="100" height="69" id="flagname">
+      <input required class="input-file customer-sticker" id="customizer-sticker" type="hidden" value="" name="properties[Sticker]">
+      <div class="sticker-name">
+        <span id="firstname">Adam</span>
+        <span id="lastname">BLYTHE</span>
+      </div>
+    </div>
+  </div>
+  <div class="customizer-row">
+    <div class="customizer-input">
+      <label class="input-label" for="customizer-firstname">First Name:</label>
+      <input maxlength="12" class="input-text customer-firstname" placeholder="First name:" type="text" name="properties[First Name]" id="customizer-firstname">
+    </div>
+    <div class="customizer-input marginright">
+      <label class="input-label" for="customizer-lastname">Last Name:</label>
+      <input maxlength="12" class="input-text customer-lastname" placeholder="Last name:" type="text" name="properties[Last Name]" id="customizer-lastname">
+    </div>
+  </div>
+  <div class="customizer-row">
+    <div class="customizer-input">
+      <label class="input-label" for="customizer-flagname">Select Flag:</label>
+      <select class="input-select customer-country" name="properties[Flag Name]" id="customizer-flagname">
+        {{ country_option_tags }}
+      </select>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/sticker.js?v=115"></script>
