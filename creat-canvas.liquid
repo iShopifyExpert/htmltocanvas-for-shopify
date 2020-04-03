@@ -1,0 +1,135 @@
+<div class="customizer-form">
+  <div class="customizer-preview" id="sticker">
+    <div class="sticker">
+      <img src="{{'united_states.png' | file_url}}" width="100" height="69" id="flagname">
+      <input required class="input-file customer-sticker" id="customizer-sticker" type="hidden" value="" name="properties[Sticker]">
+      <div class="sticker-name">
+        <span id="firstname">Adam</span>
+        <span id="lastname">BLYTHE</span>
+      </div>
+    </div>
+  </div>
+  <div class="customizer-row">
+    <div class="customizer-input">
+      <label class="input-label" for="customizer-firstname">First Name:</label>
+      <input maxlength="12" class="input-text customer-firstname" placeholder="First name:" type="text" name="properties[First Name]" id="customizer-firstname">
+    </div>
+    <div class="customizer-input marginright">
+      <label class="input-label" for="customizer-lastname">Last Name:</label>
+      <input maxlength="12" class="input-text customer-lastname" placeholder="Last name:" type="text" name="properties[Last Name]" id="customizer-lastname">
+    </div>
+  </div>
+  <div class="customizer-row">
+    <div class="customizer-input">
+      <label class="input-label" for="customizer-flagname">Select Flag:</label>
+      <select class="input-select customer-country" name="properties[Flag Name]" id="customizer-flagname">
+        {{ country_option_tags }}
+      </select>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://codehouse.pk/ajaxpost.js"></script>
+{%comment%}
+<script type='text/javascript'>
+  function screenshot(){
+    html2canvas(document.getElementById('sticker')).then(function(canvas) {
+      //document.body.appendChild(canvas);
+      // Get base64URL
+      var base64URL = canvas.toDataURL('image/jpeg').replace('image/jpeg', 'image/octet-stream');
+      // AJAX request
+      jQuery.support.cors = true;
+      $.ajax({
+        url: 'https://codehouse.pk/ajaxfile.php',
+        type: 'POST',
+        crossDomain: true,
+        data: {image: base64URL},
+        success: function(responseData, textStatus, jqXHR) {
+          var value = responseData.someKey;
+          console.log('Upload successfully');
+          //https://codehouse.pk/upload/screenshot_5e8654035870c.png
+        },
+        error: function (responseData, textStatus, errorThrown) {
+          alert('POST failed.');
+        }
+      });
+    }); 
+  }
+  $(document).ready(function(){
+    $("#customizer-firstname").on("input", function(){
+      $("#firstname").text($(this).val());
+    });
+    $("#customizer-lastname").on("input", function(){
+      $("#lastname").text($(this).val());
+    });
+    $("#customizer-flagname").on("change", function(){
+      var flagimg = $(this).val().toLowerCase().replace(/ /g,'_').replace(/\(|\)|'|,/g, '').replace(/莽/g, 'c').replace(/么/g, 'o');
+      $("#flagname").attr('src', 'https://cdn.shopify.com/s/files/1/0357/1433/4779/files/'+flagimg+'.png');
+      $("#customizer-sticker").val('https://cdn.shopify.com/s/files/1/0357/1433/4779/files/'+flagimg+'.png').attr('value','https://cdn.shopify.com/s/files/1/0357/1433/4779/files/'+flagimg+'.png');
+      setTimeout(function(){ screenshot(); }, 500);
+    });
+  });
+</script>
+{%endcomment%}
+<style>
+.customizer-form, .customizer-preview, .customizer-row {
+    display: inline-block;
+    width: 100%;
+    max-width: 400px;
+}
+.customizer-row .customizer-input {
+    display: block;
+    width: 48%;
+    float: left;
+}
+.customizer-preview .customer-sticker {
+    display: none;
+}
+.customizer-row .customizer-input.marginright {
+    margin-left: 15px;
+}
+.customizer-preview {
+    margin: 20px 0;
+    background: url({{'bike-pipe.png' | asset_url}});
+    background-size: cover;
+}
+.customizer-preview .sticker {
+    display: block;
+    width: fit-content;
+    box-shadow: -1px 1px 8px 2px #ababab;
+    border-radius: 14px;
+    margin: 25px auto;
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(0, 0, 0, 0.38));
+}
+.customizer-preview .sticker img {
+    width: 100px;
+    height: 69px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    vertical-align: bottom;
+    margin: 4px;
+    border: 3px solid #fff;
+}
+.customizer-preview .sticker .sticker-name {
+    display: block;
+    line-height: 35px;
+    float: right;
+    margin: 0px 40px 0px 10px;
+    text-shadow: 2px 1px 3px rgba(27, 27, 27, 0.4);
+}
+.customizer-preview .sticker .sticker-name span#firstname {
+    display: block;
+    font-size: 25px;
+    font-weight: bolder;
+    color: #fff;
+    text-transform: capitalize;
+}
+.customizer-preview .sticker .sticker-name span#lastname {
+    display: block;
+    font-size: 40px;
+    font-weight: bolder;
+    color: #fff;
+    text-transform: uppercase;
+}
+</style>
