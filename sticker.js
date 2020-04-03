@@ -1,5 +1,7 @@
 function sticker(){
-    html2canvas(document.getElementById('sticker')).then(function(canvas) {
+    html2canvas(document.getElementById('sticker'), {useCORS: true, scale: 2/*, dpi: 144*/}).then(function(canvas) {
+      //var canvasImg = canvas.toDataURL("image/jpg");
+      //$('#canvasImg').html('<img src="'+canvasImg+'" alt="">');
       //document.body.appendChild(canvas);
       //document.getElementById("image").src= canvas.toDataURL();
       // Get base64URL
@@ -11,9 +13,12 @@ function sticker(){
         type: 'POST',
         crossDomain: true,
         data: {image: base64URL},
+        //dataType: 'json',
+        //contentType: 'application/json; charset=utf-8',
         success: function(data) {
           console.log('Upload successfully');console.log(data);
           $("#customizer-sticker").val(data);
+          //$(".customizer-form").prepend('<img id="tem-preview" src="'+data+'" />');
         },
         error: function (error) {
           alert('POST failed.');
@@ -30,7 +35,11 @@ $(document).ready(function(){
     });
     $("#customizer-flagname").on("change", function(){
       var flagimg = $(this).val().toLowerCase().replace(/ /g,'_').replace(/\(|\)|'|,/g, '').replace(/莽/g, 'c').replace(/么/g, 'o');
-      $("#flagname").attr('src', 'https://cdn.shopify.com/s/files/1/0357/1433/4779/files/'+flagimg+'.png');
+      $("#flagname").attr('src', 'https://cdn.shopify.com/s/files/1/0357/1433/4779/files/'+flagimg+'_100x100.png');
       setTimeout(function(){ sticker(); }, 500);
+    });
+    $("#makesticker").click(function(event) {
+      event.preventDefault();
+      sticker();
     });
 });
