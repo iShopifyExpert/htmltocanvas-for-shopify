@@ -36,7 +36,10 @@ $(document).ready(function(){
     $("#customizer-flagname").on("change", function(){
       var flagimg = $(this).val().toLowerCase().replace(/ /g,'_').replace(/\(|\)|'|,/g, '').replace(/莽/g, 'c').replace(/么/g, 'o');
       $("#flagname").attr('src', 'https://cdn.shopify.com/s/files/1/0357/1433/4779/files/'+flagimg+'_100x100.png');
-      setTimeout(function(){ sticker(); }, 500);
+      $([document.documentElement, document.body]).animate({
+        scrollTop: $("#sticker").offset().top
+      }, 200);
+      setTimeout(function(){ sticker(); }, 800);
     });
     $("#makesticker").click(function(event) {
       event.preventDefault();
